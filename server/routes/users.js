@@ -6,6 +6,7 @@ const {
     getUser,
     createUser,
     updateUser,
+    updateUserProfile,
     deleteUser,
     getAllUsers, 
     getUserByEmail
@@ -19,6 +20,9 @@ const {
   .get(getUser)
   .put(updateUser) 
   .delete(deleteUser);
+
+  router.route('/:id/profile')
+  .put(updateUserProfile);
 
   router.route('/email/:email')
   .get(getUserByEmail);

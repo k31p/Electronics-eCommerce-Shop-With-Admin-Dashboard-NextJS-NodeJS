@@ -118,7 +118,7 @@ const Header = () => {
                   <Link href="/admin">Dashboard</Link>
                 </li>
                 <li>
-                  <a>Profile</a>
+                  <Link href="/profile">Profile</Link>
                 </li>
                 <li onClick={handleLogout}>
                   <a href="#">Logout</a>

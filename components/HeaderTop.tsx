@@ -55,7 +55,9 @@ const HeaderTop = () => {
           </li>
           </>
           ) :  (<>
-          <span className="ml-10 text-base">{session.user?.email}</span>
+          <Link href="/profile" className="ml-10 text-base hover:text-orange-400 transition-colors duration-200 cursor-pointer">
+            {session.user?.email}
+          </Link>
           <li className="flex items-center">
             <button onClick={() => handleLogout()} className="flex items-center gap-x-2 font-semibold">
               <FaRegUser className="text-white" />

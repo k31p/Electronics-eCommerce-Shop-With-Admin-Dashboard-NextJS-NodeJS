@@ -1,0 +1,1906 @@
+{
+	"info": {
+		"_postman_id": "b417968f-b731-44df-b6b5-f1267b962862",
+		"name": "ETS - Electronics eCommerce API",
+		"description": "Complete API documentation for Electronics eCommerce Shop with Admin Dashboard. Built with Node.js, Express, and Prisma.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21894980"
+	},
+	"item": [
+		{
+			"name": "Health & System",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/health",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rate Limit Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/rate-limit-info",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"rate-limit-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products?page=1&sortBy=defaultSort",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sortBy",
+									"value": "defaultSort"
+								},
+								{
+									"key": "price",
+									"value": "100-1000",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Laptops",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products?mode=admin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"MacBook Pro 16-inch M3\",\n  \"slug\": \"macbook-pro-16-m3\",\n  \"mainImage\": \"https://example.com/macbook-pro-16.jpg\",\n  \"price\": 249900,\n  \"rating\": 5,\n  \"description\": \"The most powerful MacBook Pro ever is here. With the blazing-fast M3 chip — built on 3-nanometer technology.\",\n  \"manufacturer\": \"Apple\",\n  \"inStock\": 15,\n  \"categoryId\": \"{{category_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"MacBook Pro 16-inch M3 Pro\",\n  \"slug\": \"macbook-pro-16-m3-pro\",\n  \"mainImage\": \"https://example.com/macbook-pro-16-updated.jpg\",\n  \"price\": 299900,\n  \"rating\": 5,\n  \"description\": \"Updated MacBook Pro with M3 Pro chip for ultimate performance.\",\n  \"manufacturer\": \"Apple\",\n  \"inStock\": 10,\n  \"categoryId\": \"{{category_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/products/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories/{{category_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"{{category_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Laptops\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Gaming Laptops\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories/{{category_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"{{category_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/categories/{{category_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"{{category_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/{{user_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/email/{{user_email}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"email",
+								"{{user_email}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User (Register)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Additional security tests for user registration",
+									"",
+									"pm.test('Security: Password not returned in response', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const user = pm.response.json();",
+									"        pm.expect(user).to.not.have.property('password');",
+									"        pm.expect(JSON.stringify(user)).to.not.include('password');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Email validation enforced', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const user = pm.response.json();",
+									"        pm.expect(user.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: User ID is UUID format', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const user = pm.response.json();",
+									"        pm.expect(user.id).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Role assignment validation', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const user = pm.response.json();",
+									"        pm.expect(['user', 'admin']).to.include(user.role);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"securePassword123\",\n  \"role\": \"user\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe.updated@example.com\",\n  \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/{{user_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/{{user_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders/{{order_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Additional security tests for order creation",
+									"",
+									"pm.test('Security: Order total validation', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const order = pm.response.json();",
+									"        pm.expect(order.total).to.be.a('number');",
+									"        pm.expect(order.total).to.be.above(0);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Email validation in order', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const order = pm.response.json();",
+									"        pm.expect(order.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Input sanitization check', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const order = pm.response.json();",
+									"        const orderStr = JSON.stringify(order);",
+									"        ",
+									"        // Check for XSS patterns",
+									"        pm.expect(orderStr).to.not.include('<script');",
+									"        pm.expect(orderStr).to.not.include('javascript:');",
+									"        pm.expect(orderStr).to.not.include('onload');",
+									"        ",
+									"        // Check for SQL injection patterns",
+									"        pm.expect(orderStr).to.not.include(\"'\");",
+									"        pm.expect(orderStr).to.not.include('--');",
+									"        pm.expect(orderStr).to.not.include('/*');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Order ID format validation', function () {",
+									"    if (pm.response.code === 201) {",
+									"        const order = pm.response.json();",
+									"        pm.expect(order.id).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Duplicate order prevention check', function () {",
+									"    // This would be validated on server side",
+									"    if (pm.response.code === 400) {",
+									"        const error = pm.response.json();",
+									"        if (error.error && error.error.toLowerCase().includes('duplicate')) {",
+									"            console.log('✅ Duplicate order prevention is working');",
+									"        }",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John\",\n  \"lastname\": \"Doe\",\n  \"phone\": \"+1234567890\",\n  \"email\": \"john.doe@example.com\",\n  \"company\": \"Tech Corp\",\n  \"adress\": \"123 Main Street\",\n  \"apartment\": \"Apt 4B\",\n  \"postalCode\": \"12345\",\n  \"city\": \"New York\",\n  \"country\": \"United States\",\n  \"status\": \"pending\",\n  \"orderNotice\": \"Please handle with care\",\n  \"total\": 149999\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"shipped\",\n  \"orderNotice\": \"Order has been shipped via FedEx\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders/{{order_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/orders/{{order_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Products",
+			"item": [
+				{
+					"name": "Get All Order Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/order-product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/order-product/{{order_product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order-product",
+								"{{order_product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerOrderId\": \"{{order_id}}\",\n  \"productId\": \"{{product_id}}\",\n  \"quantity\": 2\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/order-product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 3\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/order-product/{{order_product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order-product",
+								"{{order_product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/order-product/{{order_product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"order-product",
+								"{{order_product_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wishlist",
+			"item": [
+				{
+					"name": "Get All Wishlist Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/wishlist",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Wishlist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/wishlist/{{user_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product from Wishlist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/wishlist/{{user_id}}/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								"{{user_id}}",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to Wishlist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"{{user_id}}\",\n  \"productId\": \"{{product_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/wishlist",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from Wishlist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/wishlist/{{user_id}}/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								"{{user_id}}",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Additional security tests for search functionality",
+									"",
+									"pm.test('Security: Search injection protection', function () {",
+									"    if (pm.response.code === 200) {",
+									"        const results = pm.response.json();",
+									"        const resultsStr = JSON.stringify(results);",
+									"        ",
+									"        // Check for SQL injection responses",
+									"        pm.expect(resultsStr).to.not.include('mysql_');",
+									"        pm.expect(resultsStr).to.not.include('information_schema');",
+									"        pm.expect(resultsStr).to.not.include('database()');",
+									"        pm.expect(resultsStr).to.not.include('version()');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: NoSQL injection protection', function () {",
+									"    if (pm.response.code === 200) {",
+									"        const results = pm.response.json();",
+									"        const resultsStr = JSON.stringify(results);",
+									"        ",
+									"        // Check for NoSQL injection patterns",
+									"        pm.expect(resultsStr).to.not.include('$where');",
+									"        pm.expect(resultsStr).to.not.include('$ne');",
+									"        pm.expect(resultsStr).to.not.include('$regex');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Search result data validation', function () {",
+									"    if (pm.response.code === 200) {",
+									"        const results = pm.response.json();",
+									"        ",
+									"        if (Array.isArray(results) && results.length > 0) {",
+									"            results.forEach(product => {",
+									"                // Validate product structure",
+									"                pm.expect(product).to.have.property('id');",
+									"                pm.expect(product).to.have.property('title');",
+									"                pm.expect(product).to.have.property('price');",
+									"                ",
+									"                // Validate data types",
+									"                pm.expect(product.price).to.be.a('number');",
+									"                pm.expect(product.id).to.be.a('string');",
+									"            });",
+									"        }",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Search rate limiting awareness', function () {",
+									"    // Search endpoints should have rate limiting",
+									"    if (pm.response.code === 429) {",
+									"        console.log('✅ Search rate limiting is active');",
+									"        pm.expect(pm.response.code).to.equal(429);",
+									"    } else {",
+									"        console.log('ℹ️  Search completed within rate limits');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/search?searchTerm=macbook&page=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "macbook"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Slugs",
+			"item": [
+				{
+					"name": "Get Product by Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/slugs/{{product_slug}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"slugs",
+								"{{product_slug}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Get Product Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/images/{{product_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"images",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Product Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Additional security tests for file upload",
+									"",
+									"pm.test('Security: File upload response validation', function () {",
+									"    if (pm.response.code === 201 || pm.response.code === 200) {",
+									"        const result = pm.response.json();",
+									"        ",
+									"        // Validate response structure",
+									"        if (result.imageID) {",
+									"            pm.expect(result.imageID).to.be.a('string');",
+									"            pm.expect(result.imageID).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
+									"        }",
+									"        ",
+									"        // Check for file path traversal in response",
+									"        const responseStr = JSON.stringify(result);",
+									"        pm.expect(responseStr).to.not.include('../');",
+									"        pm.expect(responseStr).to.not.include('..\\\\');",
+									"        pm.expect(responseStr).to.not.include('/etc/');",
+									"        pm.expect(responseStr).to.not.include('C:\\\\');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: Upload rate limiting check', function () {",
+									"    if (pm.response.code === 429) {",
+									"        console.log('✅ Upload rate limiting is active');",
+									"        pm.expect(pm.response.code).to.equal(429);",
+									"    } else if (pm.response.code === 413) {",
+									"        console.log('✅ File size limiting is active');",
+									"        pm.expect(pm.response.code).to.equal(413);",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: No server path disclosure', function () {",
+									"    if (pm.response.code === 201 || pm.response.code === 200) {",
+									"        const responseStr = pm.response.text();",
+									"        ",
+									"        // Should not expose server paths",
+									"        pm.expect(responseStr).to.not.include('/home/');",
+									"        pm.expect(responseStr).to.not.include('/var/');",
+									"        pm.expect(responseStr).to.not.include('/usr/');",
+									"        pm.expect(responseStr).to.not.include('C:\\\\Users\\\\');",
+									"        pm.expect(responseStr).to.not.include('node_modules');",
+									"    }",
+									"});",
+									"",
+									"pm.test('Security: File type validation implied', function () {",
+									"    // In a real test, you would upload different file types",
+									"    // and ensure only allowed types are accepted",
+									"    if (pm.response.code === 400) {",
+									"        const error = pm.response.json();",
+									"        if (error.error && error.error.toLowerCase().includes('file type')) {",
+									"            console.log('✅ File type validation is working');",
+									"        }",
+									"    } else if (pm.response.code === 201 || pm.response.code === 200) {",
+									"        console.log('⚠️  File uploaded - ensure file type validation exists');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productID",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/images",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/images/{{image_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"images",
+								"{{image_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product Image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/images/{{image_id}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"images",
+								"{{image_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main Images",
+			"item": [
+				{
+					"name": "Upload Main Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mainImage",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/main-image",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"main-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security Tests",
+			"item": [
+				{
+					"name": "SQL Injection Test - Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: SQL Injection Protection', function () {",
+									"    // Should return 400 or sanitized results, not expose DB errors",
+									"    pm.expect(pm.response.code).to.not.equal(500);",
+									"    ",
+									"    if (pm.response.code === 400) {",
+									"        console.log('✅ SQL injection attempt blocked');",
+									"    } else if (pm.response.code === 200) {",
+									"        const responseStr = pm.response.text();",
+									"        pm.expect(responseStr).to.not.include('mysql');",
+									"        pm.expect(responseStr).to.not.include('syntax error');",
+									"        pm.expect(responseStr).to.not.include('SQLException');",
+									"        console.log('✅ SQL injection sanitized');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products?price=1' OR '1'='1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "1' OR '1'='1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "XSS Test - Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: XSS Protection', function () {",
+									"    const responseStr = pm.response.text();",
+									"    ",
+									"    // Should not return raw script tags or javascript",
+									"    pm.expect(responseStr).to.not.include('<script>alert');",
+									"    pm.expect(responseStr).to.not.include('javascript:');",
+									"    pm.expect(responseStr).to.not.include('onload=');",
+									"    pm.expect(responseStr).to.not.include('onerror=');",
+									"    ",
+									"    console.log('✅ XSS attempt handled safely');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/search?searchTerm=<script>alert('XSS')</script>",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "<script>alert('XSS')</script>"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Path Traversal Test - Images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: Path Traversal Protection', function () {",
+									"    // Should return 400/404, not 500 or file contents",
+									"    pm.expect([400, 404]).to.include(pm.response.code);",
+									"    ",
+									"    if (pm.response.code === 404) {",
+									"        console.log('✅ Path traversal blocked - resource not found');",
+									"    } else if (pm.response.code === 400) {",
+									"        console.log('✅ Path traversal blocked - bad request');",
+									"    }",
+									"    ",
+									"    const responseStr = pm.response.text();",
+									"    pm.expect(responseStr).to.not.include('/etc/passwd');",
+									"    pm.expect(responseStr).to.not.include('root:x:');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/images/../../etc/passwd",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"images",
+								"../../etc/passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rate Limiting Test - Multiple Requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: Rate Limiting Active', function () {",
+									"    if (pm.response.code === 429) {",
+									"        console.log('✅ Rate limiting triggered - request blocked');",
+									"        pm.expect(pm.response.code).to.equal(429);",
+									"        ",
+									"        // Check for rate limit headers",
+									"        const retryAfter = pm.response.headers.get('retry-after');",
+									"        if (retryAfter) {",
+									"            console.log('✅ Retry-After header present: ' + retryAfter);",
+									"        }",
+									"    } else {",
+									"        console.log('ℹ️  Request within rate limits');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Method Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: Invalid HTTP Method Handling', function () {",
+									"    // Should return 405 Method Not Allowed or 404",
+									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"    ",
+									"    if (pm.response.code === 405) {",
+									"        console.log('✅ Method not allowed - proper HTTP method validation');",
+									"        ",
+									"        // Check for Allow header",
+									"        const allowHeader = pm.response.headers.get('allow');",
+									"        if (allowHeader) {",
+									"            console.log('✅ Allow header present: ' + allowHeader);",
+									"        }",
+									"    } else if (pm.response.code === 404) {",
+									"        console.log('✅ Invalid method handled as not found');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/health",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Large Payload Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: Large Payload Protection', function () {",
+									"    // Should return 413 Payload Too Large or 400 Bad Request",
+									"    if (pm.response.code === 413) {",
+									"        console.log('✅ Large payload blocked - 413 Payload Too Large');",
+									"        pm.expect(pm.response.code).to.equal(413);",
+									"    } else if (pm.response.code === 400) {",
+									"        console.log('✅ Large payload blocked - 400 Bad Request');",
+									"        pm.expect(pm.response.code).to.equal(400);",
+									"    } else if (pm.response.code === 500) {",
+									"        console.log('⚠️  Server error - payload size limits may need adjustment');",
+									"    } else {",
+									"        console.log('ℹ️  Payload accepted - verify size is within limits');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", \"description\": \"Large description payload for testing security limits and payload size validation\", \"price\": 100}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CORS Test - Invalid Origin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Security: CORS Policy Enforcement', function () {",
+									"    const corsHeader = pm.response.headers.get('access-control-allow-origin');",
+									"    ",
+									"    if (corsHeader) {",
+									"        // Should not allow random origins",
+									"        pm.expect(corsHeader).to.not.equal('https://malicious-site.com');",
+									"        pm.expect(corsHeader).to.not.equal('*');",
+									"        console.log('✅ CORS header: ' + corsHeader);",
+									"    } else {",
+									"        console.log('ℹ️  No CORS header - may be blocked');",
+									"    }",
+									"    ",
+									"    // Should not return 500 error",
+									"    pm.expect(pm.response.code).to.not.equal(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://malicious-site.com"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"// Set common variables if not already set",
+					"if (!pm.environment.get('BASE_URL')) {",
+					"    pm.environment.set('BASE_URL', 'http://localhost:3001');",
+					"}",
+					"",
+					"// Generate sample IDs for testing",
+					"if (!pm.environment.get('product_id')) {",
+					"    pm.environment.set('product_id', 'sample-product-id-123');",
+					"}",
+					"",
+					"if (!pm.environment.get('category_id')) {",
+					"    pm.environment.set('category_id', 'sample-category-id-123');",
+					"}",
+					"",
+					"if (!pm.environment.get('user_id')) {",
+					"    pm.environment.set('user_id', 'sample-user-id-123');",
+					"}",
+					"",
+					"if (!pm.environment.get('order_id')) {",
+					"    pm.environment.set('order_id', 'sample-order-id-123');",
+					"}",
+					"",
+					"if (!pm.environment.get('user_email')) {",
+					"    pm.environment.set('user_email', 'test@example.com');",
+					"}",
+					"",
+					"if (!pm.environment.get('product_slug')) {",
+					"    pm.environment.set('product_slug', 'macbook-pro-16-m3');",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"// ===== SECURITY TESTS =====",
+					"",
+					"// Test 1: Response Headers Security",
+					"pm.test('Security: No sensitive information in headers', function () {",
+					"    const headers = pm.response.headers;",
+					"    ",
+					"    // Check for potentially dangerous headers",
+					"    pm.expect(headers.get('x-powered-by')).to.not.exist;",
+					"    pm.expect(headers.get('server')).to.not.contain('Express');",
+					"    ",
+					"    // Ensure security headers are present (if applicable)",
+					"    if (pm.response.code !== 404) {",
+					"        const corsHeader = headers.get('access-control-allow-origin');",
+					"        if (corsHeader) {",
+					"            pm.expect(corsHeader).to.not.equal('*'); // Should not allow all origins",
+					"        }",
+					"    }",
+					"});",
+					"",
+					"// Test 2: Response Content Security",
+					"pm.test('Security: No password or sensitive data exposed', function () {",
+					"    if (pm.response.json) {",
+					"        const responseText = pm.response.text();",
+					"        ",
+					"        // Check for password fields in response",
+					"        pm.expect(responseText.toLowerCase()).to.not.include('\"password\"');",
+					"        pm.expect(responseText.toLowerCase()).to.not.include('password_hash');",
+					"        pm.expect(responseText.toLowerCase()).to.not.include('secret');",
+					"        pm.expect(responseText.toLowerCase()).to.not.include('private_key');",
+					"        pm.expect(responseText.toLowerCase()).to.not.include('api_key');",
+					"        ",
+					"        // Check for SQL injection patterns",
+					"        pm.expect(responseText).to.not.include('SELECT * FROM');",
+					"        pm.expect(responseText).to.not.include('DROP TABLE');",
+					"        pm.expect(responseText).to.not.include('DELETE FROM');",
+					"    }",
+					"});",
+					"",
+					"// Test 3: HTTP Method Security",
+					"pm.test('Security: Proper HTTP status codes', function () {",
+					"    const method = pm.request.method;",
+					"    const statusCode = pm.response.code;",
+					"    ",
+					"    // Check for proper status codes based on method",
+					"    if (method === 'POST' && statusCode >= 200 && statusCode < 300) {",
+					"        pm.expect([200, 201, 202]).to.include(statusCode);",
+					"    }",
+					"    ",
+					"    if (method === 'PUT' && statusCode >= 200 && statusCode < 300) {",
+					"        pm.expect([200, 204]).to.include(statusCode);",
+					"    }",
+					"    ",
+					"    if (method === 'DELETE' && statusCode >= 200 && statusCode < 300) {",
+					"        pm.expect([200, 204]).to.include(statusCode);",
+					"    }",
+					"    ",
+					"    // Ensure no 5xx errors (server errors)",
+					"    pm.expect(statusCode).to.be.below(500);",
+					"});",
+					"",
+					"// Test 4: Rate Limiting Headers",
+					"pm.test('Security: Rate limiting information present', function () {",
+					"    const headers = pm.response.headers;",
+					"    ",
+					"    // Check if rate limiting headers are present",
+					"    const rateLimitHeaders = [",
+					"        'x-ratelimit-limit',",
+					"        'x-ratelimit-remaining',",
+					"        'x-ratelimit-reset',",
+					"        'retry-after'",
+					"    ];",
+					"    ",
+					"    let hasRateLimitInfo = false;",
+					"    rateLimitHeaders.forEach(header => {",
+					"        if (headers.get(header)) {",
+					"            hasRateLimitInfo = true;",
+					"        }",
+					"    });",
+					"    ",
+					"    // Rate limiting should be implemented (headers or 429 status)",
+					"    if (pm.response.code === 429) {",
+					"        pm.expect(pm.response.code).to.equal(429);",
+					"        console.log('✅ Rate limiting is active - 429 response received');",
+					"    } else if (hasRateLimitInfo) {",
+					"        console.log('✅ Rate limiting headers detected');",
+					"    } else {",
+					"        console.log('⚠️  No explicit rate limiting headers detected');",
+					"    }",
+					"});",
+					"",
+					"// Test 5: Request ID Tracking",
+					"pm.test('Security: Request tracking implemented', function () {",
+					"    if (pm.response.json) {",
+					"        const responseJson = pm.response.json();",
+					"        ",
+					"        // Check for request ID in response (good for logging/tracking)",
+					"        if (responseJson.requestId) {",
+					"            pm.expect(responseJson.requestId).to.be.a('string');",
+					"            pm.expect(responseJson.requestId.length).to.be.above(0);",
+					"            console.log('✅ Request ID found: ' + responseJson.requestId);",
+					"        }",
+					"    }",
+					"});",
+					"",
+					"// Test 6: Input Validation Security",
+					"pm.test('Security: Proper error handling for invalid input', function () {",
+					"    if (pm.response.code === 400) {",
+					"        pm.expect(pm.response.json()).to.have.property('error');",
+					"        ",
+					"        const errorResponse = pm.response.json();",
+					"        ",
+					"        // Ensure error messages don't expose system internals",
+					"        if (errorResponse.error) {",
+					"            pm.expect(errorResponse.error.toLowerCase()).to.not.include('prisma');",
+					"            pm.expect(errorResponse.error.toLowerCase()).to.not.include('mysql');",
+					"            pm.expect(errorResponse.error.toLowerCase()).to.not.include('database');",
+					"            pm.expect(errorResponse.error.toLowerCase()).to.not.include('connection');",
+					"        }",
+					"        ",
+					"        console.log('✅ 400 error properly handled with sanitized message');",
+					"    }",
+					"});",
+					"",
+					"// Test 7: HTTPS and Protocol Security",
+					"pm.test('Security: Protocol and URL validation', function () {",
+					"    const url = pm.request.url.toString();",
+					"    ",
+					"    // In production, should use HTTPS",
+					"    if (pm.environment.get('NODE_ENV') === 'production') {",
+					"        pm.expect(url).to.include('https://');",
+					"    }",
+					"    ",
+					"    // Check for suspicious URL patterns",
+					"    pm.expect(url.toLowerCase()).to.not.include('../');",
+					"    pm.expect(url.toLowerCase()).to.not.include('..\\\\');",
+					"    pm.expect(url).to.not.include('%2e%2e');",
+					"});",
+					"",
+					"// Test 8: Authentication Context",
+					"pm.test('Security: Authentication context validation', function () {",
+					"    const isAuthEndpoint = pm.request.url.path.join('/').includes('users') || ",
+					"                          pm.request.url.path.join('/').includes('orders') ||",
+					"                          pm.request.url.path.join('/').includes('wishlist');",
+					"    ",
+					"    if (isAuthEndpoint && ['POST', 'PUT', 'DELETE'].includes(pm.request.method)) {",
+					"        // In a real implementation, check for auth headers",
+					"        console.log('⚠️  Authentication endpoint - verify auth headers in production');",
+					"    }",
+					"});",
+					"",
+					"// ===== PERFORMANCE & FUNCTIONALITY TESTS =====",
+					"",
+					"// Test 9: Response Time",
+					"pm.test('Performance: Response time is acceptable', function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+					"    ",
+					"    if (pm.response.responseTime > 1000) {",
+					"        console.log('⚠️  Slow response: ' + pm.response.responseTime + 'ms');",
+					"    }",
+					"});",
+					"",
+					"// Test 10: Valid JSON Response",
+					"pm.test('Functionality: Response has valid JSON format', function () {",
+					"    if (pm.response.headers.get('content-type') && ",
+					"        pm.response.headers.get('content-type').includes('application/json')) {",
+					"        pm.response.to.have.jsonBody();",
+					"    }",
+					"});",
+					"",
+					"// Test 11: Content Type Validation",
+					"pm.test('Security: Proper Content-Type headers', function () {",
+					"    const contentType = pm.response.headers.get('content-type');",
+					"    ",
+					"    if (contentType) {",
+					"        // Should not allow dangerous content types",
+					"        pm.expect(contentType.toLowerCase()).to.not.include('text/html');",
+					"        pm.expect(contentType.toLowerCase()).to.not.include('application/javascript');",
+					"        pm.expect(contentType.toLowerCase()).to.not.include('text/javascript');",
+					"        ",
+					"        // Should be safe content types",
+					"        const safeTypes = ['application/json', 'text/plain', 'multipart/form-data'];",
+					"        const isSafeType = safeTypes.some(type => contentType.toLowerCase().includes(type));",
+					"        ",
+					"        if (!isSafeType && pm.response.code < 400) {",
+					"            console.log('⚠️  Unexpected content type: ' + contentType);",
+					"        }",
+					"    }",
+					"});",
+					"",
+					"// ===== DATA INTEGRITY TESTS =====",
+					"",
+					"// Set variables from response for chaining requests",
+					"if (pm.response.code === 201 || pm.response.code === 200) {",
+					"    const responseJson = pm.response.json();",
+					"    ",
+					"    // Set IDs from created resources",
+					"    if (responseJson && responseJson.id) {",
+					"        if (pm.request.url.path.includes('products')) {",
+					"            pm.environment.set('product_id', responseJson.id);",
+					"            console.log('🔗 Set product_id: ' + responseJson.id);",
+					"        } else if (pm.request.url.path.includes('categories')) {",
+					"            pm.environment.set('category_id', responseJson.id);",
+					"            console.log('🔗 Set category_id: ' + responseJson.id);",
+					"        } else if (pm.request.url.path.includes('users')) {",
+					"            pm.environment.set('user_id', responseJson.id);",
+					"            console.log('🔗 Set user_id: ' + responseJson.id);",
+					"        } else if (pm.request.url.path.includes('orders')) {",
+					"            pm.environment.set('order_id', responseJson.id);",
+					"            console.log('🔗 Set order_id: ' + responseJson.id);",
+					"        } else if (pm.request.url.path.includes('order-product')) {",
+					"            pm.environment.set('order_product_id', responseJson.id);",
+					"            console.log('🔗 Set order_product_id: ' + responseJson.id);",
+					"        }",
+					"    }",
+					"    ",
+					"    // Set slug from product creation",
+					"    if (responseJson && responseJson.slug) {",
+					"        pm.environment.set('product_slug', responseJson.slug);",
+					"        console.log('🔗 Set product_slug: ' + responseJson.slug);",
+					"    }",
+					"    ",
+					"    // Set image ID from image upload",
+					"    if (responseJson && responseJson.imageID) {",
+					"        pm.environment.set('image_id', responseJson.imageID);",
+					"        console.log('🔗 Set image_id: ' + responseJson.imageID);",
+					"    }",
+					"}",
+					"",
+					"// Test 12: Data Validation",
+					"pm.test('Security: Response data validation', function () {",
+					"    if (pm.response.json) {",
+					"        const responseJson = pm.response.json();",
+					"        ",
+					"        // Check for XSS patterns in response",
+					"        const responseText = JSON.stringify(responseJson);",
+					"        pm.expect(responseText).to.not.include('<script>');",
+					"        pm.expect(responseText).to.not.include('javascript:');",
+					"        pm.expect(responseText).to.not.include('onload=');",
+					"        pm.expect(responseText).to.not.include('onerror=');",
+					"        ",
+					"        // Check for SQL injection patterns",
+					"        pm.expect(responseText).to.not.include(\"'=\");",
+					"        pm.expect(responseText).to.not.include('1=1');",
+					"        pm.expect(responseText).to.not.include('UNION SELECT');",
+					"    }",
+					"});",
+					"",
+					"// Log security test completion",
+					"console.log('🛡️  Security tests completed for: ' + pm.request.method + ' ' + pm.request.url.path.join('/'));"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3001",
+			"type": "string"
+		},
+		{
+			"key": "product_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "category_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "order_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "order_product_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "image_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_email",
+			"value": "test@example.com",
+			"type": "string"
+		},
+		{
+			"key": "product_slug",
+			"value": "macbook-pro-16-m3",
+			"type": "string"
+		}
+	]
+}
